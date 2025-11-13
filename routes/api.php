@@ -19,11 +19,14 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/user/profile', [UserController::class, 'profile']);
     Route::post('/user/update', [UserController::class, 'update']);
 
-    Route::post('/addproduct', [ProductController::class, 'addproduct']);
-    
-    
+    Route::post('/addproduct', [ProductController::class, 'create']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/product/{id}', [ProductController::class, 'show']);
+
+Route::post('/product/{id}', [ProductController::class, 'update']);
 
