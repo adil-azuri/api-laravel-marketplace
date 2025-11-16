@@ -9,13 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Cart extends Model
 {
-     use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'user_id',
         'product_id',
         'quantity',
-        'total',
     ];
 
     // Relasi ke User (user: Users)
@@ -29,7 +28,7 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class);
     }
-    
+
     // Relasi ke Order (Order: Order[])
     public function orders(): HasMany
     {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Middleware\RoleMiddleware;
@@ -23,6 +24,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);
     Route::get('/user/profile', [UserController::class, 'profile']);
     Route::post('/user/update', [UserController::class, 'update']);
+
+    Route::post('/cart/add', [CartController::class, 'store']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
